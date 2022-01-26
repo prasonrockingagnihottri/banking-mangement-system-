@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void deposit ();
+void Withdraw ();
+void Transfer ();
+void Check_detail ();
+int list ();
+int Total_Amount = 1000, Amount, Amo, Tr, Total_Deposit = 0, Total_Withdraw =
+  0, Total_Transfer = 0;
+void
+main ()
+{
+  while (1)
+    {
+      switch (list ())
+	{
+
+	case 1:
+	  deposit ();
+	  Total_Deposit += Amount;
+	  break;
+	case 2:
+	  Withdraw ();
+	  if (Amo <= Total_Amount)
+	    Total_Withdraw += Amo;
+	  break;
+	case 3:
+	  Transfer;
+	  if (Tr <= Total_Amount)
+	    Total_Transfer += Tr;
+	case 4:
+	  Check_detail ();
+	case 5:
+	  exit (0);
+	default:
+	  printf ("Invalid Input");
+	}
+    }
+}
+
+int list ()
+{
+
+  int ch;
+  printf ("\n1. Deposit Amount: ");
+  printf ("\n2. Withdraw Amount: ");
+  printf ("\n3. Transfer Amount: ");
+  printf ("\n4. Check Details: ");
+  printf ("\n5. Exit");
+  printf ("\nEnter Your Choice: ");
+  scanf ("%d", &ch);
+  return (ch);
+}
+
+void
+deposit ()
+{
+  printf ("\nEnter the Amount you want to Deposit: ");
+  scanf ("%d", &Amount);
+  Total_Amount += Amount;
+}
+
+void
+Withdraw ()
+{
+  printf ("\n Amount to be Withdraw");
+  scanf ("%d", &Amo);
+  if (Amo <= Total_Amount)
+    Total_Amount -= Amo;
+  else
+    printf ("Withdraw not possible");
+
+}
+
+void
+Transfer ()
+{
+  printf ("\nEnter the Amount to Transfer: ");
+  scanf ("%d", &Tr);
+  if (Tr <= Total_Amount)
+    Total_Amount -= Tr;
+  else
+    printf ("\nTransfer not possible");
+}
+
+void
+Check_detail ()
+{
+  printf ("\nTotal_Amount=%d", Total_Amount);
+  printf ("\nTotal_Amount Deposited=%d", Total_Deposit);
+  printf ("\nTotal_Amount Withdraw=%d", Total_Withdraw);
+  printf ("\nTotal_Amount Transfer=%d", Total_Transfer);
+
+}
